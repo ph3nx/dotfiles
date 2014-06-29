@@ -1,0 +1,7 @@
+[user]
+	name = ph3nx
+	email = me@ph3nx.com
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore-global
