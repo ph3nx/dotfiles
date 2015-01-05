@@ -1,12 +1,10 @@
-# Compiled source #
-###################
+# compiled
 *.com
 *.class
 *.dll
 *.o
 
-# Packages #
-############
+# packages
 *.7z
 *.dmg
 *.gz
@@ -16,14 +14,12 @@
 *.tar
 *.zip
 
-# Logs and databases #
-######################
+# logs & databases
 *.log
 *.sql
 *.sqlite
 
-# OS generated files #
-######################
+# os generated
 .DS_Store
 .DS_Store?
 ._*
@@ -32,7 +28,6 @@
 ehthumbs.db
 Thumbs.db
 
-# Sublime Text #
-################
+# sublime text
 *.sublime-project
 *.sublime-workspace

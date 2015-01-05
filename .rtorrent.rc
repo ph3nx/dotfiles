@@ -1,0 +1,10 @@
+upload_rate=1
+directory=~/Downloads
+session=~/.session
+port_range=60125-64125
+port_random=yes
+dht=auto
+dht_port=63425
+peer_exchange=yes
+#bind=217.23.5.247
+ip=217.23.5.247
