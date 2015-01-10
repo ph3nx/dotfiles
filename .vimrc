@@ -1,4 +1,4 @@
 set nocp
-syntax enable
+syntax on
 filetype indent on
-set ts=2 sw=2 bs=2 expandtab
+set ts=2 sw=2 bs=2 expandtab number ruler ls=2 title hlsearch
