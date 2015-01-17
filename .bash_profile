@@ -1,6 +1,6 @@
 export TERM=xterm-16color
 export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home'
-export PATH='~/Dropbox/.bin:~/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin'
+export PATH='~/.bin:~/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin'
 eval "$(rbenv init -)"
 alias v='vim -f'
 alias b='v ~/.bash_profile && . ~/.bash_profile'
