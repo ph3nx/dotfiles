@@ -1,0 +1,15 @@
+#/usr/bin/env bash
+
+if [ $1 ]; then
+  if [ -d ~/Dropbox/projects/$1 ]; then
+    cd ~/Dropbox/projects/$1
+    echo "project $1 exists. pwd is ~/Dropbox/projects/$1"
+  else
+    mkdir ~/Dropbox/projects/$1
+    cd ~/Dropbox/projects/$1
+    ln -s ~/Dropbox/projects/$1 ~/Desktop/$1
+    echo "project $1 created. pwd is ~/Dropbox/projects/$1" 
+  fi
+else
+  cd ~/Dropbox/projects
+fi

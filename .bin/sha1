@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+var crypto, rs, filename, fs, sha1
+
+fs = require('fs')
+crypto = require('crypto')
+
+filename = process.argv[2]
+sha1 = crypto.createHash('sha1')
+rs = fs.createReadStream(filename)
+
+rs.pipe(sha1)
+
+rs.on('end', function(){
+  return console.log('SHA1 (' + filename + ') = ' + sha1.read().toString('hex'))
+})

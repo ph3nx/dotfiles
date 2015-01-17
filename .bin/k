@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [[ $1 = c ]]; then
+  $EDITOR ~/.ssh/config
+elif [[ $1 = n && -n $2 ]]; then
+  ssh-keygen -f ~/.ssh/$2 -C ph3nx@mbp
+  cat ~/.ssh/$2.pub | pbcopy
+  echo "public key $2.pub copied"
+elif [[ $1 = g && -n $2 ]]; then
+  cat ~/.ssh/$2.pub | pbcopy
+  echo "public key $2.pub copied"
+elif [[ $1 = p && -n $2 ]]; then
+  cat ~/.ssh/$2 | pbcopy
+  echo "private key $2 copied"
+else
+  echo 'key <c|n|g> <name>'
+fi

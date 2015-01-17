@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# installation
+# echo "alias s='bash ~/Dropbox/.bin/s'" >> .bash_profile
+
+if [[ -z $1 || -z $2 ]]; then
+  echo "usage: z user@host:port <shortcut> [keyname]"
+  exit 1
+fi
+
+if [ "$(cat ~/.ssh/config | grep "Host $2")" ]; then
+  echo "Host '$2' exists."
+  exit 1
+fi
+
+user="$(echo $1 | cut -d@ -f1)"
+host="$(echo $1 | cut -d@ -f2)"
+port="$(echo $host | cut -d: -f2)"
+host="$(echo $host | cut -d: -f1)"
+
+if [ $3 ]; then
+  ifile=$3
+else
+  ifile=$2
+fi
+
+if [ ! -f ~/.ssh/$ifile ]; then
+  ssh-keygen -f ~/.ssh/$ifile
+  if [ `which pbcopy` ]; then
+    cat ~/.ssh/$ifile.pub | pbcopy
+    echo "$ifile.pub copied"
+  fi
+fi
+
+echo "creating $2
+  User: $user
+  Host: $host
+  Port: $port"
+
+echo -e "Host $2\n  HostName $host\n  Port $port\n  User $user\n  IdentityFile ~/.ssh/$ifile\n  IdentitiesOnly yes" >> ~/.ssh/config
