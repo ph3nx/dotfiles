@@ -1,4 +1,7 @@
-export TERM=xterm-16color
+alias vg=vagrant
+alias vu='vg up 10a6f3d'
+alias v1='vg ssh 10a6f3d'
+export VAGRANT_DEFAULT_PROVIDER=parallels
 export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home'
 export PATH='~/.bin:~/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin'
 eval "$(rbenv init -)"
@@ -13,10 +16,10 @@ alias csc='coffee --no-header -bc'
 shopt -s autocd
 alias c=curl
 alias ip='c wtfismyip.com/json'
-. ~/Dropbox/tmuxinator.bash
+. ~/.tmuxinator.bash
 alias ls='ls -G'
 alias m='mkdir -p'
-alias p='. ~/Dropbox/.bin/p'
+alias p='. ~/.bin/p'
 alias h=heroku
 alias hc='h clone -a'
 alias ho='h open'
@@ -30,8 +33,13 @@ function ni {
 }
 alias fn='sudo find / -name'
 function db {
-  psql -c "create database $1"
+  if [ -n "$1" ]; then
+    psql -c "create database $1"
+  else
+    echo 'usage: db <dbname>'
+  fi
 }
+alias d=psql
 function mc {
   m $1
   cd $1
@@ -44,10 +52,10 @@ function pgb {
 }
 export CLICOLOR=1
 export PS1="\h \[\033[34m\]\w\[\033[00m\]\$(pgb) "
-export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_CTYPE=UTF-8
+export LC_ALL=en_US.UTF-8
+#export LANGUAGE=en_US.UTF-8
+#export LC_CTYPE=UTF-8
 alias gs='git status'
 alias n=node
 alias o=open
@@ -71,7 +79,7 @@ alias telnet='telnet -e ^d'
 function ghc {
   git clone ssh://git@github.com/$1
 }
-function d {
+function y {
   o http://gopro.com/daily-giveaway
   o http://www.campus-buddies.de/index
   o http://www.lumosity.com/app/v4/dashboard
